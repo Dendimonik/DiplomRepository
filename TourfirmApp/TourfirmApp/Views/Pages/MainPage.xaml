@@ -1,0 +1,119 @@
+﻿<Page x:Class="TourfirmApp.Views.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TourfirmApp.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="MainPage">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="Идея" Content="Оформленные договора" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Grid x:Name="UnderMain" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtFind" VerticalContentAlignment="Center" Width="200" Height="35" Grid.Column="0" TextChanged="txtFind_TextChanged"/>
+            <ComboBox x:Name="cmbPaymentStatus" Width="200" Height="35" Grid.Column="1"  FontSize="20"  SelectionChanged="cmbPaymentStatus_SelectionChanged">
+                <ComboBoxItem Content="Все договора"/>
+                <ComboBoxItem Content="Ожидается оплата"/>
+                <ComboBoxItem Content="Оплачено" />
+            </ComboBox>
+            <ComboBox x:Name="cmbOrderStatus" Width="200" Height="35" Grid.Column="2"  FontSize="20"  SelectionChanged="cmbOrderStatus_SelectionChanged">
+                <ComboBoxItem Content="Все договора"/>
+                <ComboBoxItem Content="Ещё не исполнен"/>
+                <ComboBoxItem Content="Исполнен" />
+            </ComboBox>
+            <Button x:Name="btnEdit" Width="200" Height="35" Grid.Column="3" Content="Редактировать" FontSize="20" Background="#673AB7" Foreground="White" Click="btnEdit_Click"/>
+
+        </Grid>
+        <DataGrid x:Name="dgOrders" Margin="10" Grid.Row="2" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия заказчика" Binding="{Binding Customers.Lastname}" Width="175">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="ID Тура" Binding="{Binding Tours.Description}" Width="150">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма сделки" Binding="{Binding DealAmount}" Width="150">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Предоплата" Binding="{Binding Prepayment}" Width="175">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Статус оплаты" Binding="{Binding PaymentState}" Width="225">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Состояние заказа" Binding="{Binding OrderState}" Width="225">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="Background" Value="DarkViolet"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+
+    </Grid>
+</Page>

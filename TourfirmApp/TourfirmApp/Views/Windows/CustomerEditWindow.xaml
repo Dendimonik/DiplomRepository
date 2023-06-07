@@ -1,0 +1,52 @@
+﻿<Window x:Class="TourfirmApp.Views.Windows.CustomerEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TourfirmApp.Views.Windows"
+        mc:Ignorable="d"
+        Title="Окно редактирования заказчика" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label  Grid.Row="0" Content="Фамилия" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <Label  Grid.Row="1" Content="Имя" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <Label  Grid.Row="2" Content="Отчество" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <Label  Grid.Row="3" Content="Дата рождения" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+
+            <TextBox x:Name="txtFirstName" Grid.Row="0" Grid.Column="1" Width="150" Height="35"/>
+            <TextBox x:Name="txtMiddleName" Grid.Row="1" Grid.Column="1" Width="150" Height="35"/>
+            <TextBox x:Name="txtLastName" Grid.Row="2" Grid.Column="1" Width="150" Height="35"/>
+            <DatePicker x:Name="dtBirthday" Grid.Row="3" Grid.Column="1" Width="150" Height="35"/>
+
+        </Grid>
+        <Image Source="/Photos/profile-round-1342-svgrepo-com.png" Grid.Column="1" Width="120" Height="120" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Документ удостоверяющий личность"  HorizontalAlignment="Center" FontSize="18" Margin="0,0,15,0" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Серия/номер"  HorizontalAlignment="Center" FontSize="18" Margin="0,0,200,60" Height="35" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Телефон"  HorizontalAlignment="Center" FontSize="18" Margin="0,0,200,-40" Height="35" />
+        <TextBox x:Name="txtDocumentType" Grid.Row="1" Grid.Column="1" Width="150" Height="35" Margin="0,0,0,140"/>
+        <TextBox x:Name="txtDocumentData" Grid.Row="1" Grid.Column="1" Width="150" Height="35" Margin="0,0,0,35"/>
+        <TextBox x:Name="txtPhone" Grid.Row="1" Grid.Column="1" Width="150" Height="35" Margin="0,0,0,-65"/>
+        <Button x:Name="btnSave" Width="150" Height="35" Content="Сохранить" FontSize="20" Background="#673AB7" Foreground="White" Grid.Row="2" Grid.ColumnSpan="2" Click="btnSave_Click"/>
+
+    </Grid>
+</Window>
